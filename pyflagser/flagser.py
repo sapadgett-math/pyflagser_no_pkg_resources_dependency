@@ -6,6 +6,9 @@ from ._utils import _extract_unweighted_graph, _extract_weighted_graph
 from .modules.flagser_pybind import compute_homology, AVAILABLE_FILTRATIONS
 from .modules.flagser_coeff_pybind import compute_homology as \
     compute_homology_coeff
+#from .flagser_pybind import compute_homology, AVAILABLE_FILTRATIONS
+#from .flagser_coeff_pybind import compute_homology as \
+#    compute_homology_coeff
 
 
 def flagser_unweighted(adjacency_matrix, min_dimension=0, max_dimension=np.inf,

@@ -3,6 +3,7 @@ library."""
 
 from ._utils import _extract_unweighted_graph, _extract_weighted_graph
 from .modules.flagser_count_pybind import compute_cell_count
+#from .flagser_count_pybind import compute_cell_count
 
 
 def flagser_count_unweighted(adjacency_matrix, directed=True):

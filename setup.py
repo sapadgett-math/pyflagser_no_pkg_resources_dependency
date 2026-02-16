@@ -8,10 +8,11 @@ import sys
 import platform
 import subprocess
 
-from pkg_resources.extern.packaging import version
+from packaging.version import Version
+from packaging.version import parse
+#from pkg_resources.extern.packaging import version
 from setuptools import setup, Extension, find_packages
 from setuptools.command.build_ext import build_ext
-
 
 PACKAGE_DIR = "pyflagser"
 
@@ -83,9 +84,9 @@ class CMakeBuild(build_ext):
                                " , ".join(e.name for e in self.extensions))
 
         if platform.system() == "Windows":
-            cmake_version = version.parse(re.search(r'version\s*([\d.]+)',
+            cmake_version = parse(re.search(r'version\s*([\d.]+)',
                                                     out.decode()).group(1))
-            if cmake_version < version.parse("3.1.0"):
+            if cmake_version < parse("3.1.0"):
                 raise RuntimeError("CMake >= 3.1.0 is required on Windows")
 
         self.install_dependencies()
